@@ -36,7 +36,7 @@ const WalletHeader = () => {
     init();
 
     return () => {
-      if (window.ethereum.removeListener) {
+      if (window.ethereum && typeof window.ethereum.removeListener === 'function'){
         window.ethereum.removeListener('chainChanged', handleChainChanged);
         window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
       }
